@@ -4,6 +4,6 @@ These are reconstructions based on images published by Professor Kitaoka in his 
 
 To date, all of them are programmed in the Python dialect of Processing.
 
-![Kitaoka Illusions](http://imgur.com/a/sgqNh.png "Kitaoka Illusions")
+![Kitaoka Illusions](http://i.imgur.com/G0hDL5B.png "Kitaoka Illusions")
 
 

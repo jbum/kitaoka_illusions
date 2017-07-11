@@ -1,7 +1,7 @@
 # Selected reproductions of full page illustrations from the book "Trick Eyes" (2002) by Akiyoshi Kitaoka
 
 # "Barber Spirals" spiral illusion appears on page 30
-# no online reference image found
+# no online reference image found, but similar in concept to http://www.psy.ritsumei.ac.jp/~akitaoka/cafewallspiral.jpg
 
 stripes = 40
 
@@ -37,7 +37,7 @@ def draw():
         noStroke()
         for i in xrange(stripes):
            pushMatrix()
-           rotate(n*s_ang/2-i*s_ang)
+           rotate(-n*s_ang/2-i*s_ang)
            ctr = i%4
            fill(s_colors[ctr])
            stroke(s_colors[ctr])

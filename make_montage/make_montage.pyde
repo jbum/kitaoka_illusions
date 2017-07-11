@@ -1,29 +1,31 @@
 import glob, re
 
+cw,ch = (256,256)
+gw,gh = (5,7)
+
 def setup():
-    size(1280,1536)
+    size(1280,1792) # cw*gw, ch*gh
     noLoop()
     textFont(loadFont("HelveticaNeue-Light-18.vlw"),18)
     textAlign(CENTER,CENTER)
              
 def draw():
+    global gw,gh,cw,ch
     background(255)
-    cw = width/5.0
-    ch = cw
     for n,fname in enumerate(glob.glob(sketchPath()+'/../output/*.png')):
         pimg = loadImage(fname)
-        x = n%5
-        y = n/5
-        sc = cw/pimg.width
+        x = n%gw
+        y = n/gw
+        sc = float(cw)/pimg.width
         pushMatrix()
-        translate(x*cw+cw/2,y*ch+ch/2)
+        translate(x*cw+cw/2.0,y*ch+ch/2.0)
         scale(sc)
         image(pimg,-pimg.width/2,-pimg.height/2)
         popMatrix()
             
     for n,fname in enumerate(glob.glob(sketchPath()+'/../output/*.png')):
-        x = n%5
-        y = n/5
+        x = n%gw
+        y = n/gw
         m = re.search(".*/([\w\-]+)\.png",fname)
         if m:
             txt = m.group(1)

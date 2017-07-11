@@ -5,7 +5,7 @@
 
 
 output_name = "kids_of_seals"
-s_colors = [color(0,0,255),color(255,255,0),color(255,0,0),color(255)]
+s_colors = [color(0,0,192),color(255,255,0),color(192,0,0),color(255)]
 d_colors = [color(255),color(0),color(255),color(0)]
 bg_color = color(255)
 
@@ -22,12 +22,12 @@ def draw():
     rad = width*.45
     n = 0
 
-    rad_ratio = .93  # map(mouseX,0,width,.8,.99)
+    rad_ratio = .9  # map(mouseX,0,width,.8,.99)
     # rad_ratio = map(mouseX,0,width,.8,.99)
     # print rad_ratio
     
-    escale = 0.23 # map(mouseX,0,width,1/12.0,1/2.0)
-    dscale = 1/11.0
+    escale = 0.25 # map(mouseX,0,width,1/12.0,1/2.0)
+    dscale = 1/12.0
     # print escale
    
     background(bg_color)
@@ -41,7 +41,6 @@ def draw():
     while rad > 1:
         rad2 = rad*rad_ratio
         
-        
         for i in xrange(nbr_seals):
            pushMatrix()
            rotate(-i*s_ang)
@@ -50,9 +49,13 @@ def draw():
                 cos(-s_ang)*rad2,sin(-s_ang)*rad2,
                 cos(-s_ang)*rad,sin(-s_ang)*rad,
                 cos(0)*rad, sin(0)*rad)
-           
-            
-           ellipse(cos(0)*rad, sin(0)*rad,(rad-rad2)/2,(rad-rad2)*escale)
+           popMatrix()
+        
+        for i in xrange(nbr_seals):
+           pushMatrix()
+           rotate(-i*s_ang)
+           fill(s_colors[(i+n)%4])
+           ellipse(cos(0)*rad, sin(0)*rad,(rad/rad_ratio-rad2)/4,(TWO_PI*rad/nbr_seals)*escale)
            fill(d_colors[(i+n)%4])
            ellipse(cos(0)*rad, sin(0)*rad,(rad-rad2)*dscale,(rad-rad2)*dscale)
            popMatrix()

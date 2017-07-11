@@ -37,8 +37,8 @@ def draw():
         noStroke()
         for i in xrange(stripes):
            pushMatrix()
-           rotate(-i*s_ang)
-           ctr = (i+n*3)%4
+           rotate(n*s_ang/2-i*s_ang)
+           ctr = i%4
            fill(s_colors[ctr])
            stroke(s_colors[ctr])
            quad(cos(0)*rad2, sin(0)*rad2,

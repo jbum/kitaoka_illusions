@@ -43,16 +43,13 @@ def draw():
         a1 = i*TWO_PI/stripes
         a2 = (i+1)*TWO_PI/stripes
         fill(s_colors[i % 2])
-        triangle(0,0,
-                 cos(a1)*rad,sin(a1)*rad,
-                 cos(a2)*rad,sin(a2)*rad)
+        arc(0,0,rad,rad,a1,a2)
         # fill(color(255) if i%2 > 0 else color(0))
         blendMode(BLEND)
         fill(s_colors[(i+1) % 2])
-        quad(cos(a1)*rad1,sin(a1)*rad1,
-             cos(a2)*rad1,sin(a2)*rad1,
-             cos(a2)*rad2,sin(a2)*rad2,
-             cos(a1)*rad2,sin(a1)*rad2)
+        arc(0,0,rad1,rad1,a1,a2)
+        fill(s_colors[i % 2])
+        arc(0,0,rad2,rad2,a1,a2)
     drat = 0.5/float(stripes)
     for i in xrange(stripes):
         a1 = i*TWO_PI/stripes

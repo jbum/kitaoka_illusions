@@ -3,7 +3,7 @@ import glob, re
 def setup():
     size(1280,1536)
     noLoop()
-    textFont(createFont("ArialRoundedMTBold",18))
+    textFont(loadFont("HelveticaNeue-Light-18.vlw"),18)
     textAlign(CENTER,CENTER)
              
 def draw():
@@ -27,10 +27,10 @@ def draw():
         m = re.search(".*/([\w\-]+)\.png",fname)
         if m:
             txt = m.group(1)
-            fill(255,192)
+            fill(255,200)
             noStroke()
-            rect(x*cw,y*ch+ch-20,cw,20)
-            fill(64)
+            rect(x*cw,y*ch+ch-24,cw,24)
+            fill(20)
             text(txt, x*cw+cw/2,y*ch+ch-14)
     
     saveFrame("../output/montage.jpg")

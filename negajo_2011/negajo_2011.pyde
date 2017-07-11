@@ -23,6 +23,7 @@ def snake_tail(px,py,ang,fg_color):
     translate(px,py)
     rotate(ang)
     fill(fg_color)
+    strokeWeight(1)
     stroke(fg_color)
     arc(0,0,cw*2,cw,-PI/2,PI/2)
     popMatrix()
@@ -36,6 +37,7 @@ def snake_head(px,py,ang,fg_color,eye_color,sc=1.0):
     
     # head
     fill(fg_color)
+    strokeWeight(1)
     stroke(fg_color)
     rect(0,-cw,cw*2,cw*2)
     ellipse(cw*2,0,cw,cw)
@@ -44,9 +46,9 @@ def snake_head(px,py,ang,fg_color,eye_color,sc=1.0):
     arc(cw*3,0,cw,cw,0,PI)
     fill(eye_color)
     ellipse(cw*2,-cw/2,cw*.15,cw*.15)
-    stroke(tongue_color)
     
     # tongue
+    stroke(tongue_color)
     noFill()
     strokeWeight(sw)
     strokeCap(ROUND)
@@ -54,11 +56,11 @@ def snake_head(px,py,ang,fg_color,eye_color,sc=1.0):
     curveVertex(cw*2+sw,sw)
     curveVertex(cw*2+sw,sw)
     curveVertex(cw*3,cw*0.5)
-    curveVertex(cw*4,cw*1)
-    curveVertex(cw*4,cw*1)
+    curveVertex(cw*4,cw*1-sw)
+    curveVertex(cw*4,cw*1-sw)
     endShape()
     beginShape()
-    curveVertex(cw*2+sw,sw)
+    curveVertex(cw*2+sw,sw*2)
     curveVertex(cw*2+sw,sw)
     curveVertex(cw*3,cw*0.4)
     curveVertex(cw*4,sw)
@@ -88,7 +90,6 @@ def draw():
     # interior
     x_ofst = 0
     x_ofst_dir = 1
-    strokeWeight(width*1.0/orig_width)
 
     # top/bot heads/tails
     for x in xrange(0,gw,2):
@@ -117,15 +118,16 @@ def draw():
         if y % 2 == 1:
             if (5+y) % 6 != 0:
                 if x_ofst_dir > 0:
-                    snake_head(px1,py1-sw/4,-PI,c_colors[0],c_colors[1])
-                    snake_head(px2,py2+sw/4,0,c_colors[1],c_colors[0])
+                    snake_head(px1,py1,-PI,c_colors[0],c_colors[1])
+                    snake_head(px2,py2,0,c_colors[1],c_colors[0])
                 else:
                     print "!"
-                    snake_head(px1+cw,py1+sw/4,0,c_colors[0],c_colors[1],sc=-1)
-                    snake_head(px2,py2-sw/4,-PI,c_colors[1],c_colors[0],sc=-1)
+                    snake_head(px1+cw,py1,0,c_colors[0],c_colors[1],sc=-1)
+                    snake_head(px2,py2,-PI,c_colors[1],c_colors[0],sc=-1)
             else:
                 fill(0)
                 stroke(0)
+                strokeWeight(1)
                 rect(px1-cw,py1-cw,cw,cw*2)
                 fill(255)
                 stroke(255)
@@ -147,9 +149,11 @@ def draw():
                 py = y*cw
                 fill(c_colors[(x/2) % 2])
                 stroke(c_colors[(x/2) % 2])
+                strokeWeight(1)
                 rect(px,py,cw,cw)
         if (5+y) % 6 != 0:
             stroke(bg_color)
+            strokeWeight(sw)
             line(0,y*cw,width,y*cw)
         x_ofst += x_ofst_dir
         if x_ofst == 6:

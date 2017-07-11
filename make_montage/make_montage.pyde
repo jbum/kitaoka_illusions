@@ -29,8 +29,8 @@ def draw():
             txt = m.group(1)
             fill(255,192)
             noStroke()
-            rect(x*cw,y*ch+ch-18,cw,18)
-            fill(0)
-            text(txt, x*cw+cw/2,y*ch+ch-12)
+            rect(x*cw,y*ch+ch-20,cw,20)
+            fill(64)
+            text(txt, x*cw+cw/2,y*ch+ch-14)
     
     saveFrame("../output/montage.jpg")

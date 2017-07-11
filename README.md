@@ -8,6 +8,6 @@ These are reconstructions based on images published by Professor Kitaoka in his 
 
 All of them are programmed in the Python dialect of Processing.
 
-![Kitaoka Illusions](https://github.com/username/repository/blob/montage.jpg "Kitaoka Illusions")
+![Kitaoka Illusions](https://github.com/jbum/kitaoka_illusions/blob/master/output/montage.jpg "Kitaoka Illusions")
 
 

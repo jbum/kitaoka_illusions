@@ -31,6 +31,6 @@ def draw():
             noStroke()
             rect(x*cw,y*ch+ch-18,cw,18)
             fill(0)
-            text(txt, x*cw+cw/2,y*ch+ch-11)
+            text(txt, x*cw+cw/2,y*ch+ch-12)
     
     saveFrame("../output/montage.jpg")

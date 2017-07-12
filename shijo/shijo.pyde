@@ -16,6 +16,7 @@ patlen = 12
 def setup():
     size(1040,1040) # intentionally a multiple of gw+margin_checkers*2 for sharp pixel boundaries
     noLoop()
+    ellipseMode(RADIUS)
 
 def get_pat(x):
     return ((x+1)/3) & 0x01
@@ -30,6 +31,26 @@ def get_color_index(x,y):
     else:
         return get_pat((x+y*(patlen-1)) % patlen)*2
 
+
+def dashed_line(x1,y1,x2,y2):
+    line(x1,y1,x2,y2)
+    
+    # xd = x2 - x1
+    # yd = y2 - y1
+    # x,y = (x1,y1)
+    # for i in xrange(10):
+    #     line(x,y,x+xd/20.0,y+yd/20.0)
+    #     x += xd/10.0
+    #     y += yd/10.0
+    #     x = int(constrain(x,x1,x2))
+    #     y = int(constrain(y,y1,y2))
+        
+
+def dashed_rect(x,y,w,h):
+    dashed_line(x,y,x+w,y)
+    dashed_line(x+w,y,x+w,y+h)
+    dashed_line(x+w,y+h,x,y+h)
+    dashed_line(x,y+h,x,y)
 
 def draw():
     
@@ -48,6 +69,7 @@ def draw():
             rect(x*cw,y*cw,cw,cw)
 
     # draw red lines
+    clip(0,0,gw*cw,gw*cw)
     cwd = dist(0,0,cw,cw)
     noFill()
     stroke(255,0,0)
@@ -61,8 +83,7 @@ def draw():
                 translate(xo+x*24*cw,yo)
                 rotate(PI/4)
                 rad = 1.5*r*cwd
-                rect(-4,-4,8,8)
-                rect(-rad,-rad,rad*2,rad*2)
+                dashed_rect(-rad,-rad,rad*2,rad*2)
                 popMatrix()
             
 
@@ -75,26 +96,12 @@ def draw():
                 translate(xo+x*24*cw,yo)
                 rotate(PI/4)
                 rad = 1.5*r*cwd
-                rect(-4,-4,8,8)
-                rect(-rad,-rad,rad*2,rad*2)
+                dashed_rect(-rad,-rad,rad*2,rad*2)
                 popMatrix()
     
-    
+    noClip()
     popMatrix()
-    fill(255)
-    noStroke()
-    beginShape()
-    vertex(0,0)
-    vertex(width,0)
-    vertex(width,height)
-    vertex(0,height)
-    beginContour()
-    vertex(cw*2,cw*2)
-    vertex(cw*2,height-cw*2)
-    vertex(width-cw*2,height-cw*2)
-    vertex(width-cw*2,cw*2)
-    endContour()
-    endShape(CLOSE)
+
     
     saveFrame("../output/" + output_name + ".png")
     

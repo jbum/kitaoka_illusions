@@ -33,19 +33,8 @@ def get_color_index(x,y):
 
 
 def dashed_line(x1,y1,x2,y2):
-    line(x1,y1,x2,y2)
+    line(x1,y1,x2,y2)  # needs work
     
-    # xd = x2 - x1
-    # yd = y2 - y1
-    # x,y = (x1,y1)
-    # for i in xrange(10):
-    #     line(x,y,x+xd/20.0,y+yd/20.0)
-    #     x += xd/10.0
-    #     y += yd/10.0
-    #     x = int(constrain(x,x1,x2))
-    #     y = int(constrain(y,y1,y2))
-        
-
 def dashed_rect(x,y,w,h):
     dashed_line(x,y,x+w,y)
     dashed_line(x+w,y,x+w,y+h)

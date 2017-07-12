@@ -47,10 +47,6 @@ def draw():
         a2 = (i+1)*TWO_PI/stripes
         fill(s_colors[i % 2])
         arc(0,0,rad,rad,a1,a2)
-        # triangle(0,0,
-        #          cos(a1)*rad,sin(a1)*rad,
-        #          cos(a2)*rad,sin(a2)*rad)
-        # fill(color(255) if i%2 > 0 else color(0))
         blendMode(BLEND)
         fill(s_colors[(i+1) % 2])
         arc(0,0,rad1,rad1,a1,a2)

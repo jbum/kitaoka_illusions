@@ -1,10 +1,10 @@
 import glob, re
 
-cw,ch = (256,256)
+cw,ch = (178,178)
 gw,gh = (5,7)
 
 def setup():
-    size(1280,1792) # cw*gw, ch*gh
+    size(890,1246) # cw*gw, ch*gh
     noLoop()
     textFont(loadFont("HelveticaNeue-Light-18.vlw"),18)
     textAlign(CENTER,CENTER)

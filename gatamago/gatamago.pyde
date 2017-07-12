@@ -1,6 +1,6 @@
 # Selected reproductions of full page illustrations from the book "Trick Eyes" (2002) by Akiyoshi Kitaoka
 
-# "Eggs pf a Moth" geometrical illusion appears on page 40
+# "Eggs of a Moth" geometrical illusion appears on page 40
 # reference image: http://www.ritsumei.ac.jp/~akitaoka/gatamago.gif
 
 output_name = "gatmago"

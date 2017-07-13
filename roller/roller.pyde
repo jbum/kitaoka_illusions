@@ -14,8 +14,6 @@ circ_color = color(244,114,2)
 light_color = color(255,255,255)
 dark_color = color(0,0,0)
 
-output_pic = "opart_28.png"
-
 def setup():
    global opart_shader, ographics
    size(1024,1024)

@@ -48,7 +48,7 @@ def draw():
                 fill(r_color)
                 noStroke()
                 quad(-dr,0,0,-dr,dr,0,0,dr)
-                strokeWeight(width*3.5/orig_width)
+                strokeWeight(width*3.5/orig_width) # note: strokeWeight does not diminish with ray size..
                 stroke(255*b)
                 # upper
                 line(-dr,0,0,-dr)

@@ -31,7 +31,7 @@ xd = [1,1,-1,-1]
 yd = [-1,1,-1,1]
 
 def setup():
-    size(574,574) # intentionally a multiple of gw+margin_checkers*2 for sharp pixel boundaries
+    size(800,800) # intentionally a multiple of gw+margin_checkers*2 for sharp pixel boundaries
     noLoop()
 
 def draw():
